@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
+import 'package:sqlite/screen/add.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,22 +10,37 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      centerTitle: true,
-      title: Text('Home Screen'),  
+        centerTitle: true,
+        title: const Text('Home Screen'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-            ElevatedButton(onPressed: (){}, child: Text('add',)),
-            ElevatedButton(onPressed: (){}, child: Text('show')),
-          ],)
+              ElevatedButton(
+                  onPressed: () {
+                  
+                  },
+                  child:const Text(
+                    'Show',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) =>   Add()));
+                  },
+                  child:const Text('Add',
+                      style: TextStyle(fontWeight: FontWeight.bold))),
+            ],
+          )
         ],
       ),
     );
